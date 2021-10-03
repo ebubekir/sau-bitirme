@@ -16,3 +16,9 @@ class Image:
                                            f"_{width}_{height}.{self.__image_format}")
         cv.imwrite(new_image_path, resized_image)
         print(f"The image has been saved in the {new_image_path} directory.")
+
+    def color_filter(self, lower_color, upper_color):
+        hsv = cv.cvtColor(self.img, cv.COLOR_BGR2HSV)
+        mask = cv.inRange(hsv, lower_color, upper_color)
+        res = cv.bitwise_and(self.img, self.img, mask=mask)
+        return res
