@@ -20,3 +20,12 @@ class Morphology:
     @classmethod
     def closing(cls, image):
         return cv.morphologyEx(image, cv.MORPH_CLOSE, cls.kernel)
+
+    @classmethod
+    def top_hat(cls, image):
+        return cv.morphologyEx(image, cv.MORPH_TOPHAT, cls.kernel)
+
+    @classmethod
+    def black_hat(cls, image):
+        return cv.morphologyEx(image, cv.MORPH_BLACKHAT, cls.kernel)
+
